@@ -3,111 +3,1233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alltest Academy</title>
+    <title>Alltest Academy - Smart Prep for PMA & Entry Tests</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <style>
-        /* Simple Reset */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-
-        /* Header & Navigation */
-        header {
-            background: #0056b3;
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
+        :root {
+            --primary: #1a365d;
+            --primary-dark: #0d2340;
+            --secondary: #c53030;
+            --accent: #ecc94b;
+            --light: #f7fafc;
+            --dark: #1a202c;
+            --gray: #4a5568;
+            --light-gray: #edf2f7;
+            --success: #38a169;
+            --border-radius: 12px;
+            --box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
         }
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #ffffff;
+            overflow-x: hidden;
         }
-
-        /* Sections */
-        section {
-            padding: 4rem 1rem;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-        #home {
-            background: #e6f0ff;
-        }
-        #about {
-            background: #f9f9f9;
-        }
-        #courses {
-            background: #e6f0ff;
-        }
-        #contact {
-            background: #f9f9f9;
-        }
-
-        /* Headings */
-        h1, h2 {
+        
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
             margin-bottom: 1rem;
         }
-
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+            cursor: pointer;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(26, 54, 93, 0.3);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-accent {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            color: var(--dark);
+        }
+        
+        .btn-accent:hover {
+            background-color: #d69e2e;
+            box-shadow: 0 5px 15px rgba(236, 201, 75, 0.3);
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 15px auto 0;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-img {
+            height: 60px;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 0;
+            line-height: 1.1;
+        }
+        
+        .logo-text span {
+            font-size: 1.1rem;
+            color: var(--secondary);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 180px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,192L48,208C96,224,192,256,288,245.3C384,235,480,181,576,181.3C672,181,768,235,864,234.7C960,235,1056,181,1152,160C1248,139,1344,149,1392,154.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: bottom;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 650px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .hero-image {
+            position: absolute;
+            right: -50px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50%;
+            max-width: 600px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+        
+        /* Features Section */
+        .features {
+            background-color: var(--light-gray);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .feature-icon i {
+            font-size: 30px;
+            color: white;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Courses Section */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .course-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .course-image {
+            height: 200px;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: 700;
+            position: relative;
+        }
+        
+        .course-content {
+            padding: 25px;
+        }
+        
+        .course-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            margin: 15px 0;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .course-meta span {
+            display: flex;
+            align-items: center;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .course-meta i {
+            margin-right: 5px;
+            color: var(--primary);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,128L48,117.3C96,107,192,85,288,80C384,75,480,85,576,101.3C672,117,768,139,864,149.3C960,160,1056,160,1152,138.7C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: bottom;
+        }
+        
+        .section-title h2 {
+            color: white;
+        }
+        
+        .section-title h2::after {
+            background: white;
+        }
+        
+        .section-title p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-right: 15px;
+        }
+        
+        .testimonial-info h4 {
+            margin-bottom: 5px;
+        }
+        
+        .testimonial-info span {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        .testimonial-content p {
+            font-style: italic;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .testimonial-content p::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -10px;
+            font-size: 3rem;
+            opacity: 0.2;
+            font-family: serif;
+        }
+        
+        /* Stats Section */
+        .stats {
+            background-color: var(--light);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--gray);
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        .contact-text h4 {
+            margin-bottom: 5px;
+        }
+        
+        .contact-text p, .contact-text a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-text a:hover {
+            color: var(--primary);
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
         /* Footer */
         footer {
-            background: #333;
+            background: var(--dark);
             color: white;
+            padding: 70px 0 0;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #a0aec0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
             text-align: center;
-            padding: 1rem;
+            padding: 25px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #a0aec0;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content {
+                max-width: 100%;
+                text-align: center;
+            }
+            
+            .hero-image {
+                position: relative;
+                width: 100%;
+                max-width: 500px;
+                margin: 50px auto 0;
+                right: 0;
+                top: 0;
+                transform: none;
+            }
+            
+            .hero-btns {
+                justify-content: center;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                background: white;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                padding: 30px 0;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                transition: left 0.3s ease;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                margin-bottom: 15px;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        .logo-img {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 50%;
+            color: white;
+            font-weight: 700;
+            font-size: 1.5rem;
+            min-width: 60px;
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#courses">Courses</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <div class="logo-img">AA</div>
+                    <div class="logo-text">
+                        <h1>Alltest Academy</h1>
+                        <span>Smart Prep for PMA & Entry Tests</span>
+                    </div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
     </header>
 
-    <section id="home">
-        <h1>Welcome to Alltest Academy</h1>
-        <p>Excellence in Education</p>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Military & University Test Preparation Experts</h1>
+                <p>Alltest Academy specializes in comprehensive preparation for PMA, PNCADET, military officer tests, and university entry exams including NUST, FAST, GIKI, and IIUI.</p>
+                <div class="hero-btns">
+                    <a href="#courses" class="btn">Explore Courses</a>
+                    <a href="#contact" class="btn btn-outline">Contact Us</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div style="width: 100%; height: 100%; background: linear-gradient(45deg, #1a365d, #2d3748); display: flex; align-items: center; justify-content: center;">
+                <div style="color: white; text-align: center; padding: 20px;">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Success Starts Here</h2>
+                    <p style="font-size: 1.2rem;">Join thousands of successful students who transformed their futures with Alltest Academy</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="about">
-        <h2>About Us</h2>
-        <p>Alltest Academy is a premier institution dedicated to providing high-quality education and training to students. We aim to empower our students with knowledge and skills for their future.</p>
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Alltest Academy</h2>
+                <p>Discover the unique features that make us the preferred choice for students and parents</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Expert Instructors</h3>
+                    <p>Our faculty includes retired military officers and university professors with extensive experience in test preparation.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Specialized Curriculum</h3>
+                    <p>We offer tailored programs for each test type, covering all essential topics and recent exam patterns.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Modern Learning Platform</h3>
+                    <p>Access our interactive online platform with video lessons, practice tests, and progress tracking.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Proven Results</h3>
+                    <p>Our students consistently achieve top scores and gain admission to prestigious institutions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Personalized Attention</h3>
+                    <p>Small class sizes and individualized support ensure every student receives proper guidance.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Interview Preparation</h3>
+                    <p>Specialized training for military interviews with mock sessions and expert feedback.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
+    <!-- Courses Section -->
     <section id="courses">
-        <h2>Our Courses</h2>
-        <p>We offer a wide range of courses in various disciplines:</p>
-        <ul>
-            <li>Test Preparation</li>
-            <li>Science and Technology</li>
-            <li>Mathematics</li>
-            <li>Languages</li>
-        </ul>
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Specialized Courses</h2>
+                <p>Comprehensive preparation programs for military and university entrance exams</p>
+            </div>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-image" style="background: linear-gradient(45deg, #1a365d, #2d3748);">
+                        PMA Long Course
+                    </div>
+                    <div class="course-content">
+                        <h3>PMA Long Course Preparation</h3>
+                        <p>Comprehensive preparation for Pakistan Military Academy entrance tests and interviews.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 16 Weeks</span>
+                            <span><i class="fas fa-user-graduate"></i> Intensive</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-image" style="background: linear-gradient(45deg, #c53030, #e53e3e);">
+                        PNCADET
+                    </div>
+                    <div class="course-content">
+                        <h3>PNCADET Preparation Program</h3>
+                        <p>Specialized training for Pakistan Navy Cadet entrance examinations and interviews.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 14 Weeks</span>
+                            <span><i class="fas fa-user-graduate"></i> Comprehensive</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-image" style="background: linear-gradient(45deg, #38a169, #48bb78);">
+                        Military Officers
+                    </div>
+                    <div class="course-content">
+                        <h3>Military Officer Tests</h3>
+                        <p>Preparation for all military branches including Pilot, Doctor, and Technical Cadres.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 12 Weeks</span>
+                            <span><i class="fas fa-user-graduate"></i> Specialized</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-image" style="background: linear-gradient(45deg, #805ad5, #9f7aea);">
+                        University Entry
+                    </div>
+                    <div class="course-content">
+                        <h3>University Entry Tests</h3>
+                        <p>Preparation for NUST, FAST, GIKI, IIUI, and other university entrance examinations.</p>
+                        <div class="course-meta">
+                            <span><i class="far fa-clock"></i> 10 Weeks</span>
+                            <span><i class="fas fa-user-graduate"></i> Comprehensive</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">97%</div>
+                    <div class="stat-label">Success Rate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3200+</div>
+                    <div class="stat-label">Students Trained</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">45+</div>
+                    <div class="stat-label">Expert Instructors</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">99%</div>
+                    <div class="stat-label">Satisfaction Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Students Say</h2>
+                <p>Hear from our successful students who transformed their academic journey with Alltest Academy</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">A</div>
+                        <div class="testimonial-info">
+                            <h4>Ahmed Raza</h4>
+                            <span>Selected in PMA Long Course</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>Alltest Academy's PMA preparation course was exceptional. The instructors were incredibly knowledgeable and helped me secure my place at PMA.</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">S</div>
+                        <div class="testimonial-info">
+                            <h4>Sana Khan</h4>
+                            <span>Admitted to NUST</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>The NUST entry test preparation program helped me achieve a top score. The practice tests were identical to the actual exam!</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">B</div>
+                        <div class="testimonial-info">
+                            <h4>Bilal Ahmed</h4>
+                            <span>Selected as PAF Pilot</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>The aviation aptitude test preparation and interview training were invaluable. I couldn't have made it without Alltest Academy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
     <section id="contact">
-        <h2>Contact Us</h2>
-        <p>Email: info@alltestacademy.com</p>
-        <p>Phone: +1 (123) 456-7890</p>
-        <p>Address: 123 Education Street, Learning City, 10101</p>
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Have questions or ready to enroll? Get in touch with our team</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>We're here to answer any questions you may have about our programs and help you choose the right course for your goals.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone Number</h4>
+                                <p>+92 370 0397234</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email Address</h4>
+                                <p><a href="mailto:tailor.ai600@gmail.com">tailor.ai600@gmail.com</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>WhatsApp</h4>
+                                <p>+92 370 0397234</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Office Hours</h4>
+                                <p>Monday-Saturday: 9AM - 7PM<br>Sunday: 10AM - 2PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" placeholder="Enter your phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="course">Interested Course</label>
+                            <select id="course" style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 8px; font-family: 'Poppins', sans-serif; font-size: 1rem;">
+                                <option value="">Select a course</option>
+                                <option value="pma">PMA Long Course</option>
+                                <option value="pncadet">PNCADET</option>
+                                <option value="military">Military Officer Tests</option>
+                                <option value="university">University Entry Tests</option>
+                                <option value="pilot">PAF Pilot Test</option>
+                                <option value="doctor">Military Doctor Test</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" placeholder="How can we help you?"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-accent" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </section>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Alltest Academy. All rights reserved.</p>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo">
+                        <div class="logo-img">AA</div>
+                        <div class="logo-text">
+                            <h1 style="color: white;">Alltest Academy</h1>
+                            <span style="color: var(--accent);">Smart Prep for PMA & Entry Tests</span>
+                        </div>
+                    </div>
+                    <p style="color: #a0aec0; margin: 20px 0;">Excellence in military and university test preparation since 2015. We're committed to helping students achieve their academic and career dreams.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#">Success Stories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Our Courses</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">PMA Long Course</a></li>
+                        <li><a href="#">PNCADET Preparation</a></li>
+                        <li><a href="#">Military Pilot Test</a></li>
+                        <li><a href="#">Military Doctor Test</a></li>
+                        <li><a href="#">NUST Entry Test</a></li>
+                        <li><a href="#">FAST/NU Entry Test</a></li>
+                        <li><a href="#">GIKI Entry Test</a></li>
+                        <li><a href="#">IIUI Entry Test</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p style="color: #a0aec0; margin-bottom: 20px;">Subscribe to our newsletter for test updates, preparation tips, and special offers.</p>
+                    <form style="display: flex;">
+                        <input type="email" placeholder="Your email" style="flex: 1; padding: 12px 15px; border: none; border-radius: 8px 0 0 8px; font-family: 'Poppins', sans-serif;">
+                        <button class="btn" style="border-radius: 0 8px 8px 0; padding: 12px 20px;"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <p>&copy; 2025 Alltest Academy. All rights reserved. Specialized in PMA & Entry Test Preparation.</p>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+        
+        // Form submission
+        const contactForm = document.querySelector('form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form values
+                const name = document.getElementById('name').value;
+                const course = document.getElementById('course').value;
+                
+                // Show success message
+                alert(`Thank you ${name}! We've received your inquiry about ${course}. We'll contact you shortly at the provided number.`);
+                
+                // Reset form
+                this.reset();
+            });
+        }
+        
+        // WhatsApp button functionality
+        const whatsappBtn = document.createElement('a');
+        whatsappBtn.href = 'https://wa.me/923700397234';
+        whatsappBtn.target = '_blank';
+        whatsappBtn.className = 'whatsapp-btn';
+        whatsappBtn.innerHTML = '<i class="fab fa-whatsapp"></i>';
+        whatsappBtn.style.position = 'fixed';
+        whatsappBtn.style.bottom = '30px';
+        whatsappBtn.style.right = '30px';
+        whatsappBtn.style.width = '60px';
+        whatsappBtn.style.height = '60px';
+        whatsappBtn.style.backgroundColor = '#25D366';
+        whatsappBtn.style.color = 'white';
+        whatsappBtn.style.borderRadius = '50%';
+        whatsappBtn.style.display = 'flex';
+        whatsappBtn.style.alignItems = 'center';
+        whatsappBtn.style.justifyContent = 'center';
+        whatsappBtn.style.fontSize = '30px';
+        whatsappBtn.style.boxShadow = '0 5px 15px rgba(0,0,0,0.3)';
+        whatsappBtn.style.zIndex = '1000';
+        whatsappBtn.style.transition = 'all 0.3s';
+        
+        whatsappBtn.addEventListener('mouseover', () => {
+            whatsappBtn.style.transform = 'scale(1.1)';
+        });
+        
+        whatsappBtn.addEventListener('mouseout', () => {
+            whatsappBtn.style.transform = 'scale(1)';
+        });
+        
+        document.body.appendChild(whatsappBtn);
+    </script>
 </body>
 </html>
