@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alltest Academy - Management Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --primary-dark: #0d2340;
+            --secondary: #c53030;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+        }
+        
+        .sidebar {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            min-height: 100vh;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        
+        .sidebar .nav-link {
+            color: rgba(255,255,255,0.8);
+            padding: 12px 20px;
+            margin: 5px 0;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .sidebar .nav-link:hover,
+        .sidebar .nav-link.active {
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+        }
+        
+        .sidebar .nav-link i {
+            width: 25px;
+            text-align: center;
+            margin-right: 10px;
+        }
+        
+        .main-content {
+            padding: 30px;
+        }
+        
+        .dashboard-card {
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            margin-bottom: 25px;
+            height: 100%;
+        }
+        
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-header {
+            font-weight: 600;
+            background-color: white;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 25px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .stat-label {
+            color: #6c757d;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+        
+        .recent-activity {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .recent-activity li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .activity-time {
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3 col-lg-2 sidebar p-0">
+                <div class="d-flex flex-column p-3">
+                    <div class="text-center mb-4 mt-3">
+                        <h3><i class="fas fa-chalkboard-teacher"></i> Alltest Academy</h3>
+                        <p class="text-white-50">Management Dashboard</p>
+                    </div>
+                    
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active">
+                                <i class="fas fa-tachometer-alt"></i> Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-book"></i> Courses
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-users"></i> Students
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-calendar-alt"></i> Schedule
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-chart-line"></i> Analytics
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-cog"></i> Settings
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/YOUR_USERNAME/alltest-academy" target="_blank" class="nav-link">
+                                <i class="fab fa-github"></i> Edit Website
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <div class="mt-auto text-center">
+                        <div class="btn-group">
+                            <a href="https://YOUR_USERNAME.github.io/alltest-academy" target="_blank" class="btn btn-outline-light btn-sm">
+                                <i class="fas fa-external-link-alt"></i> View Website
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-9 col-lg-10 ml-sm-auto main-content">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2>Dashboard</h2>
+                    <div>
+                        <span class="me-3">Welcome, Admin</span>
+                        <button class="btn btn-outline-primary">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="dashboard-card card">
+                            <div class="card-body stat-card">
+                                <div class="stat-number">142</div>
+                                <div class="stat-label">Total Students</div>
+                                <div class="mt-3">
+                                    <span class="text-success">+12 this week</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3">
+                        <div class="dashboard-card card">
+                            <div class="card-body stat-card">
+                                <div class="stat-number">8</div>
+                                <div class="stat-label">Active Courses</div>
+                                <div class="mt-3">
+                                    <span class="text-success">2 new this month</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3">
+                        <div class="dashboard-card card">
+                            <div class="card-body stat-card">
+                                <div class="stat-number">96%</div>
+                                <div class="stat-label">Success Rate</div>
+                                <div class="mt-3">
+                                    <span class="text-success">+3% from last year</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3">
+                        <div class="dashboard-card card">
+                            <div class="card-body stat-card">
+                                <div class="stat-number">24</div>
+                                <div class="stat-label">New Inquiries</div>
+                                <div class="mt-3">
+                                    <span class="text-warning">5 awaiting response</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row mt-4">
+                    <div class="col-md-8">
+                        <div class="dashboard-card card">
+                            <div class="card-header">Website Content Management</div>
+                            <div class="card-body">
+                                <div class="mb-4">
+                                    <h5>Quick Update</h5>
+                                    <p>Edit your website content directly on GitHub:</p>
+                                    <a href="https://github.com/YOUR_USERNAME/alltest-academy/edit/main/index.html" 
+                                       target="_blank" 
+                                       class="btn btn-primary">
+                                        <i class="fab fa-github"></i> Edit Website Content
+                                    </a>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <h5>Update Contact Information</h5>
+                                    <form>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <label class="form-label">Phone Number</label>
+                                                <input type="text" class="form-control" value="+92 370 0397234">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">Email Address</label>
+                                                <input type="email" class="form-control" value="tailor.ai600@gmail.com">
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Update Contact Info</button>
+                                    </form>
+                                </div>
+                                
+                                <div>
+                                    <h5>Add New Course</h5>
+                                    <form>
+                                        <div class="mb-3">
+                                            <label class="form-label">Course Name</label>
+                                            <input type="text" class="form-control" placeholder="e.g., PAF Pilot Test Preparation">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Description</label>
+                                            <textarea class="form-control" rows="3" placeholder="Course description..."></textarea>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <label class="form-label">Duration</label>
+                                                <input type="text" class="form-control" placeholder="e.g., 12 Weeks">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">Level</label>
+                                                <select class="form-select">
+                                                    <option>Beginner</option>
+                                                    <option>Intermediate</option>
+                                                    <option>Advanced</option>
+                                                    <option>Intensive</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Add Course</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="dashboard-card card">
+                            <div class="card-header">Recent Activity</div>
+                            <div class="card-body">
+                                <ul class="recent-activity">
+                                    <li>
+                                        <div><i class="fas fa-user-plus text-success me-2"></i> 5 new students registered</div>
+                                        <div class="activity-time">2 hours ago</div>
+                                    </li>
+                                    <li>
+                                        <div><i class="fas fa-book text-primary me-2"></i> New course added: Medical Entry Test</div>
+                                        <div class="activity-time">Yesterday</div>
+                                    </li>
+                                    <li>
+                                        <div><i class="fas fa-question-circle text-info me-2"></i> 3 new inquiries received</div>
+                                        <div class="activity-time">2 days ago</div>
+                                    </li>
+                                    <li>
+                                        <div><i class="fas fa-check-circle text-success me-2"></i> Website updated successfully</div>
+                                        <div class="activity-time">3 days ago</div>
+                                    </li>
+                                    <li>
+                                        <div><i class="fas fa-chart-line text-warning me-2"></i> Monthly report generated</div>
+                                        <div class="activity-time">1 week ago</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="dashboard-card card mt-4">
+                            <div class="card-header">Quick Links</div>
+                            <div class="card-body">
+                                <div class="d-grid gap-2">
+                                    <a href="#" class="btn btn-outline-primary text-start">
+                                        <i class="fab fa-whatsapp me-2"></i> WhatsApp Messages
+                                    </a>
+                                    <a href="mailto:tailor.ai600@gmail.com" class="btn btn-outline-primary text-start">
+                                        <i class="fas fa-envelope me-2"></i> Email Inquiries
+                                    </a>
+                                    <a href="#" class="btn btn-outline-primary text-start">
+                                        <i class="fas fa-file-invoice me-2"></i> Generate Reports
+                                    </a>
+                                    <a href="https://github.com/YOUR_USERNAME/alltest-academy/settings/pages" 
+                                       target="_blank"
+                                       class="btn btn-outline-primary text-start">
+                                        <i class="fab fa-github me-2"></i> GitHub Settings
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <div class="dashboard-card card">
+                            <div class="card-header">Student Testimonials</div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4 mb-4">
+                                        <div class="border p-3 rounded">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="bg-primary text-white rounded-circle p-2 me-3" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+                                                    A
+                                                </div>
+                                                <div>
+                                                    <strong>Ahmed Raza</strong>
+                                                    <div class="text-muted small">Selected in PMA Long Course</div>
+                                                </div>
+                                            </div>
+                                            <p>"Alltest Academy's PMA preparation course was exceptional. The instructors were incredibly knowledgeable!"</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-4">
+                                        <div class="border p-3 rounded">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="bg-primary text-white rounded-circle p-2 me-3" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+                                                    S
+                                                </div>
+                                                <div>
+                                                    <strong>Sana Khan</strong>
+                                                    <div class="text-muted small">Admitted to NUST</div>
+                                                </div>
+                                            </div>
+                                            <p>"The NUST entry test preparation program helped me achieve a top score. The practice tests were perfect!"</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-4">
+                                        <div class="border p-3 rounded">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="bg-primary text-white rounded-circle p-2 me-3" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+                                                    B
+                                                </div>
+                                                <div>
+                                                    <strong>Bilal Ahmed</strong>
+                                                    <div class="text-muted small">Selected as PAF Pilot</div>
+                                                </div>
+                                            </div>
+                                            <p>"The aviation aptitude test preparation and interview training were invaluable. Couldn't have made it without Alltest Academy."</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-outline-primary">
+                                    <i class="fas fa-plus me-2"></i> Add New Testimonial
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
